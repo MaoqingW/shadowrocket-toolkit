@@ -1,0 +1,21 @@
+node_modules/
+coverage/
+.DS_Store
+
+# 私人配置、抓包原件和凭据
+*.conf
+*.har
+*.chls
+*.saz
+*.proxymanlog*
+*.pcap*
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+*.mobileconfig
+.env*
+.local/
+captures/
