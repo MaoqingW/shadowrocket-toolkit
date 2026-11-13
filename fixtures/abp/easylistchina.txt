@@ -1,0 +1,10 @@
+[Adblock Plus 2.0]
+! Version: fixture-china
+! Title: EasyList China
+||hash.trafficmanager.net^
+||ads.example.com^
+||china.example.cn^
+@@||china-allow.example.cn^
+|https://start.example.cn/ad^
+@@||path.example.com/allowed.js
+||regular-expression.example.cn^$script,domain=site.example.cn

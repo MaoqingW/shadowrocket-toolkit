@@ -8,6 +8,10 @@
   },
   "scripts": {
     "test": "vitest run",
+    "rules:fetch": "node tools/abp-rules.js fetch",
+    "rules:analyze": "node tools/abp-rules.js analyze",
+    "rules:build": "node tools/abp-rules.js build",
+    "rules:test": "vitest run tests/abp-rules.test.js",
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",

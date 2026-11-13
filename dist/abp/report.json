@@ -1,0 +1,65 @@
+{
+  "sourceId": "combined",
+  "upstream": [
+    "EasyList",
+    "EasyList China"
+  ],
+  "version": [
+    "202611130628",
+    "202611130622"
+  ],
+  "rawRuleCount": 95333,
+  "blockingCount": 62992,
+  "exceptionCount": 1707,
+  "cosmeticCount": 30607,
+  "exactCount": 0,
+  "approximateCount": 48043,
+  "unsupportedCount": 46023,
+  "conflictCount": 1267,
+  "duplicateCount": 13,
+  "finalOutputCount": 48030,
+  "skippedByReason": {
+    "non-domain-pattern": 8465,
+    "cosmetic-filter": 30607,
+    "unresolved-exception-risk": 48030,
+    "overlaps-exception": 1267,
+    "resource-or-advanced-option": 3279,
+    "third-party-scope": 1745,
+    "domain-scope": 168,
+    "duplicate-domain-rule": 13,
+    "abp-regex-not-equivalent-to-shadowrocket": 27,
+    "unknown-option:rewrite=abp-resource:blank-mp4": 8,
+    "exception-cannot-be-represented-as-routing-policy": 988,
+    "cosmetic-exception-not-applicable-to-network-rules": 693,
+    "unknown-option:/))": 4,
+    "unknown-option:/)": 4,
+    "unparsed-exception": 26,
+    "unknown-option:rewrite=abp-resource:1x1-transparent-gif": 3,
+    "unknown-option:rewrite=abp-resource:blank-mp3": 4,
+    "unknown-option:rewrite=abp-resource:blank-js": 1,
+    "unknown-option:=\"sponsored\"])": 1
+  },
+  "buildTime": "2026-11-13T00:00:00.000Z",
+  "candidateCounts": {
+    "easylist": 43512,
+    "easylistchina": 5798
+  },
+  "unresolvedExceptionCount": 26,
+  "explicitConflictCount": 1267,
+  "safeOutputCount": 0,
+  "experimentalOutputCount": 48030,
+  "sources": [
+    {
+      "sourceId": "easylist",
+      "url": "https://easylist.to/easylist/easylist.txt",
+      "fetchedAt": "2026-11-13T06:32:53.562Z",
+      "sha256": "44280a83c8acfddc4fea0e0dbec3b30f36d283951c3b5831ceba9c6de5af6f05"
+    },
+    {
+      "sourceId": "easylistchina",
+      "url": "https://easylist-downloads.adblockplus.org/easylistchina.txt",
+      "fetchedAt": "2026-11-13T06:32:55.996Z",
+      "sha256": "eed675394cc66ad804bacd5a732f10f5d243ed71d27022041956a26758269f43"
+    }
+  ]
+}

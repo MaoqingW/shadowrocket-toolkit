@@ -13,12 +13,18 @@ npm ci
 npm run check
 ```
 
-| 命令               | 用途                                |
-| ------------------ | ----------------------------------- |
-| `npm test`         | 运行 Vitest，覆盖模拟响应与模块检查 |
-| `npm run lint`     | 检查 JavaScript                     |
-| `npm run format`   | 写入 Prettier 格式                  |
-| `npm run validate` | 检查模块的仓库约定和明显问题        |
+| 命令                                            | 用途                                  |
+| ----------------------------------------------- | ------------------------------------- |
+| `npm test`                                      | 运行 Vitest，覆盖模拟响应与模块检查   |
+| `npm run lint`                                  | 检查 JavaScript                       |
+| `npm run format`                                | 写入 Prettier 格式                    |
+| `npm run validate`                              | 检查模块的仓库约定和明显问题          |
+| `npm run rules:fetch`                           | 下载并缓存 EasyList 与 EasyList China |
+| `npm run rules:build`                           | 拉取上游并生成独立 ABP 转换规则       |
+| `npm run rules:build -- --source=easylistchina` | 仅构建 EasyList China                 |
+| `node tools/abp-rules.js build --offline`       | 使用成功下载的本地缓存离线构建        |
+
+ABP 转换器只发布语义明确的纯域名阻断规则；输出位于 `dist/abp/`，不会自动合并或激活到个人模块。例外、路径、资源类型限制、正则及其他高级选项会保守跳过并记录在 JSON 报告中。详见[ABP 规则转换](docs/abp-rule-conversion.md)。
 
 - `modules/` 保存可独立安装的模块。
 - `scripts/example/` 和 `fixtures/example/` 保存模拟脚本与输入。

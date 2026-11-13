@@ -1,5 +1,7 @@
 node_modules/
 coverage/
+.cache/abp/
+dist/abp/
 .DS_Store
 
 # 私人配置、抓包原件和凭据

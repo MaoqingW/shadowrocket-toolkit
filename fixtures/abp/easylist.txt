@@ -1,0 +1,13 @@
+[Adblock Plus 2.0]
+! Version: fixture-easylist
+! Title: EasyList
+||000491b06a.com^
+||ads.example.com^
+||cdn.example.com^$third-party
+||path.example.com/banner.js
+@@||allow.example.com^
+@@||conflict.example.com/safe.js
+##.advert
+||unknown.example.com^$mystery
+||image.example.com^$image
+||wild.example.com/ad*

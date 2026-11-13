@@ -1,0 +1,4 @@
+#!name=EasyList ABP 实验单规则测试
+#!desc=仅用于手动验证；目标 ads.linkedin.com
+[Rule]
+DOMAIN-SUFFIX,ads.linkedin.com,REJECT
