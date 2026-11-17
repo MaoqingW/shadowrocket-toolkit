@@ -1,12 +1,20 @@
-#!name=豆瓣 EasyList China 域名实验
-#!desc=仅测试 erebor.douban.com 拦截；独立启用，出现异常可关闭。
+#!name=豆瓣 EasyList China 网络规则实验
+#!desc=测试 1 条域名和 4 条 URL 拦截；独立启用，出现异常可关闭。
 
 # Source: EasyList China full subscription
 # https://easylist-downloads.adblockplus.org/easylistchina.txt
 # Version: 202611170934
 # Source SHA-256: 86e6bcae6e25951c767dc615740d882d6303179266e9a4918d052248436c3b7d
-# Original rule: line 8014, ||erebor.douban.com^
-# Experimental: ABP exceptions and Shadowrocket behavior require on-device verification.
+# Original lines: 7857-7860 (URL), 8014 (domain)
+# Experimental: URL-REGEX needs path visibility; ABP semantics and exceptions require on-device verification.
 
 [Rule]
 DOMAIN-SUFFIX,erebor.douban.com,REJECT
+# ||douban.com/?unit=dale_movie_trailer_after_play&
+URL-REGEX,^https?://(?:[A-Za-z0-9_-]+\.)*douban\.com/\?unit=dale_movie_trailer_after_play&,REJECT
+# ||douban.com/view/dale-online/dale_ad
+URL-REGEX,^https?://(?:[A-Za-z0-9_-]+\.)*douban\.com/view/dale-online/dale_ad,REJECT
+# ||douban.com^*/fm_bgad.js
+URL-REGEX,^https?://(?:[A-Za-z0-9_-]+\.)*douban\.com[^A-Za-z0-9_.%-].*/fm_bgad\.js,REJECT
+# ||doubanio.com^*/js/ad.
+URL-REGEX,^https?://(?:[A-Za-z0-9_-]+\.)*doubanio\.com[^A-Za-z0-9_.%-].*/js/ad\.,REJECT
