@@ -26,6 +26,8 @@ npm run check
 
 ABP 转换器只发布语义明确的纯域名阻断规则；输出位于 `dist/abp/`，不会自动合并或激活到个人模块。例外、路径、资源类型限制、正则及其他高级选项会保守跳过并记录在 JSON 报告中。详见[ABP 规则转换](docs/abp-rule-conversion.md)。
 
+豆瓣 App 域名实验见[独立测试模块](modules/douban-easylistchina-test.sgmodule)和[测试说明](docs/douban-easylistchina-test.md)；模块需手动启用。
+
 - `modules/` 保存可独立安装的模块。
 - `scripts/example/` 和 `fixtures/example/` 保存模拟脚本与输入。
 - `tests/` 和 `tools/` 保存测试与静态验证工具。
