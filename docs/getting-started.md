@@ -2,11 +2,11 @@
 
 ## 安装与验收
 
-1. 在 Mac 打开 `modules/my-rules.sgmodule`，复制内容到 iPhone 上 Shadowrocket 的「配置 → 模块 → 新建模块」，保存。菜单文字可能随版本调整。
-2. 确认列表显示模块名称和描述。分别在禁用与启用模块时打开常用 App，对比网络访问和请求日志。初始版本只含注释和元数据，无需额外开启 HTTPS 解密。
-3. 未来发布可访问的版本后，在「配置 → 模块」点「+」，输入能直接返回模块文本的 URL，再启用对应条目。确认返回的是模块文件，而非 GitHub 页面。
+1. 按[知乎广告过滤](zhihu-ad-filter.md)中的模块直链，在 iPhone 上 Shadowrocket 的「配置 → 模块」中添加 URL 并启用；模块已配置公开 HTTPS 脚本地址。也可复制 `modules/my-rules.sgmodule` 内容新建模块。菜单文字可能随版本调整。
+2. 确认列表显示模块名称和描述，MITM 已启用、证书受信任且覆盖 `api.zhihu.com`。分别在禁用与启用模块时打开知乎，对比推荐流、翻页和请求日志。
+3. 确认模块和脚本 URL 返回文件正文，而非 GitHub 页面；脚本下载与 MITM 配置见上述说明。
 
-本地静态校验覆盖仓库约定。仅含元数据的初始文件是否被你的 Shadowrocket 版本接受，以及模块优先级、脚本 API 和 MITM 行为，均需真机验证。
+本地静态校验覆盖仓库约定。模块优先级、脚本加载、脚本 API 和 MITM 行为均需真机验证。
 
 参考 [Shadowrocket 社区配置手册](https://github.com/LOWERTOP/Shadowrocket/wiki/)。
 

@@ -1,0 +1,54 @@
+{
+  "data": [
+    {
+      "type": "ComponentCard",
+      "id": "answer-a",
+      "extra": { "promotion": null }
+    },
+    {
+      "type": "ComponentCard",
+      "id": "promoted-answer",
+      "extra": {
+        "promotion": "{\"is_card\":true,\"id\":\"sample-promotion\",\"click_tracks\":[\"https://example.com/click\"]}"
+      }
+    },
+    { "type": "ComponentCard", "id": "answer-b" },
+    {
+      "type": "feed_advert",
+      "id": "sample-ad",
+      "ad": { "display_advertising_tag": true }
+    },
+    { "type": "ComponentCard", "id": "answer-c" },
+    { "type": "ComponentCard", "id": "answer-d" },
+    { "type": "ComponentCard", "id": "answer-e" }
+  ],
+  "dataV1": [
+    {
+      "type": "sdui",
+      "id": "answer-a",
+      "unify_content": { "biz_ext": { "promotion": null } }
+    },
+    {
+      "type": "sdui",
+      "id": "promoted-answer",
+      "unify_content": {
+        "tags": [
+          { "code": "commercial_content_plugin_ad_tag", "value": "广告" }
+        ],
+        "rec": { "source_type": "TS_SOURCE_EXTRA_PROMOTION" }
+      }
+    },
+    { "type": "sdui", "id": "answer-b" },
+    { "type": "feed_advert", "id": "sample-ad" },
+    { "type": "sdui", "id": "answer-c" },
+    { "type": "sdui", "id": "answer-d" },
+    { "type": "sdui", "id": "answer-e" }
+  ],
+  "paging": {
+    "is_end": false,
+    "next": "https://example.com/next",
+    "totals": 0
+  },
+  "styles": { "sample": {} },
+  "extra": { "sample": true }
+}

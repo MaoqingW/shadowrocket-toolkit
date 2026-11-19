@@ -2,7 +2,7 @@
 
 个人维护的 Shadowrocket App 优化模块与脚本仓库。继续使用现有 `.conf` 管理节点、分流、DNS、Skip Proxy 和 Always Real IP。这里集中维护一份 `modules/my-rules.sgmodule`，按需加入经过抓包和回归验证的优化。
 
-初始模块只有元数据和知乎、B 站、豆瓣、京东、网易云音乐的分组注释。模块目前没有启用任何网络规则。示范脚本仅处理模拟 JSON，独立于模块。
+主模块包含知乎 `commercial_api/` 路径拦截与推荐流广告过滤，其他 App 暂保留分组注释。响应脚本同时处理 `data` 和 `dataV1` 中的品牌广告及推广回答，模块已配置公开 HTTPS 脚本地址。详见[知乎广告过滤](docs/zhihu-ad-filter.md)。示范脚本仅处理模拟 JSON，独立于模块。
 
 ## 本地开发
 
@@ -29,7 +29,7 @@ ABP 转换器只发布语义明确的纯域名阻断规则；输出位于 `dist/
 豆瓣 App 域名实验见[独立测试模块](modules/douban-easylistchina-test.sgmodule)和[测试说明](docs/douban-easylistchina-test.md)；模块需手动启用。
 
 - `modules/` 保存可独立安装的模块。
-- `scripts/example/` 和 `fixtures/example/` 保存模拟脚本与输入。
+- `scripts/zhihu/` 和 `fixtures/zhihu/` 保存知乎响应脚本与脱敏样本；`example/` 子目录保存独立模拟示例。
 - `tests/` 和 `tools/` 保存测试与静态验证工具。
 - `docs/` 保存安装、调试、规则开发和故障排查步骤。
 
