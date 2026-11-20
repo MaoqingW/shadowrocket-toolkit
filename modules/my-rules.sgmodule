@@ -30,6 +30,8 @@
 zhihu-recommend = type=http-response,pattern=^https://api\.zhihu\.com/topstory/recommend(?:\?|$),requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/MaoqingW/shadowrocket-toolkit/refs/heads/main/scripts/zhihu/recommend.js
 # Zhihu / 知乎：仅移除回答流中 type=ad 的完整条目，保留回答、相关问题及分页。
 zhihu-next-render = type=http-response,pattern=^https://api\.zhihu\.com/next-render(?:\?|$),requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/MaoqingW/shadowrocket-toolkit/refs/heads/main/scripts/zhihu/next-render.js
+# Zhihu / 知乎：清空问题回答 feeds 响应顶层 ad_info。
+zhihu-question-feeds = type=http-response,pattern=^https://api\.zhihu\.com/questions/[^/?#]+/feeds(?:\?|$),requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/MaoqingW/shadowrocket-toolkit/refs/heads/main/scripts/zhihu/question-feeds.js
 
 [MITM]
 hostname = %APPEND% api.zhihu.com
