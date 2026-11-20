@@ -26,6 +26,8 @@ npm run check
 
 ABP 转换器只发布语义明确的纯域名阻断规则；输出位于 `dist/abp/`，不会自动合并或激活到个人模块。例外、路径、资源类型限制、正则及其他高级选项会保守跳过并记录在 JSON 报告中。详见[ABP 规则转换](docs/abp-rule-conversion.md)。
 
+网易云音乐「领福利」入口和默认选中配置改写已接入主模块，手机效果待验证。支持二进制 EAPI 解密与重新加密，构建、导入与回滚见[测试说明](docs/netease-home-filter.md)。本地改动尚未推送时，远程脚本地址不会更新。
+
 豆瓣 App 域名实验见[独立测试模块](modules/douban-easylistchina-test.sgmodule)和[测试说明](docs/douban-easylistchina-test.md)；模块需手动启用。
 
 - `modules/` 保存可独立安装的模块。

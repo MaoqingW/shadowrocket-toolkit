@@ -1,5 +1,5 @@
 #!name=我的 App 优化规则
-#!desc=知乎商业接口拦截、推荐流与回答流广告过滤；脚本通过公开 HTTPS 地址加载。
+#!desc=知乎广告过滤、网易云音乐领福利入口与默认选中配置改写；脚本通过 HTTPS 地址加载，网易云规则待手机验证。
 
 # ====================================
 # Zhihu / 知乎
@@ -26,6 +26,8 @@
 ^https://api\.zhihu\.com/commercial_api/ - reject
 
 [Script]
+# NetEase Music / 网易云音乐：删除领福利顶部入口，取消 freeListen 默认选中；二进制 EAPI 响应解密后重新加密。
+netease-home = type=http-response,pattern=^https://interface3\.music\.163\.com/eapi/link/home/framework/(?:tab|top/tab)(?:\?|$),requires-body=1,binary-body-mode=1,max-size=1048576,script-path=https://raw.githubusercontent.com/MaoqingW/shadowrocket-toolkit/refs/heads/main/scripts/netease/home.js
 # Zhihu / 知乎：从本仓库公开分支加载响应脚本。
 zhihu-recommend = type=http-response,pattern=^https://api\.zhihu\.com/topstory/recommend(?:\?|$),requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/MaoqingW/shadowrocket-toolkit/refs/heads/main/scripts/zhihu/recommend.js
 # Zhihu / 知乎：仅移除回答流中 type=ad 的完整条目，保留回答、相关问题及分页。
@@ -34,4 +36,4 @@ zhihu-next-render = type=http-response,pattern=^https://api\.zhihu\.com/next-ren
 zhihu-question-feeds = type=http-response,pattern=^https://api\.zhihu\.com/questions/[^/?#]+/feeds(?:\?|$),requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/MaoqingW/shadowrocket-toolkit/refs/heads/main/scripts/zhihu/question-feeds.js
 
 [MITM]
-hostname = %APPEND% api.zhihu.com
+hostname = %APPEND% api.zhihu.com, interface3.music.163.com
