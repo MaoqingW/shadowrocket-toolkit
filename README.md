@@ -2,7 +2,7 @@
 
 个人维护的 Shadowrocket App 优化模块与脚本仓库。继续使用现有 `.conf` 管理节点、分流、DNS、Skip Proxy 和 Always Real IP。这里集中维护一份 `modules/my-rules.sgmodule`，按需加入经过抓包和回归验证的优化。
 
-主模块包含知乎 `commercial_api/` 路径拦截、推荐流及回答流广告过滤，其他 App 暂保留分组注释。推荐流脚本处理 `data` 和 `dataV1` 中的品牌广告及推广回答；回答流脚本仅移除 `/next-render` 的 `data` 中 `type=ad` 的条目。模块已配置公开 HTTPS 脚本地址，新脚本需随模块一起推送后才能远程加载。详见[知乎广告过滤](docs/zhihu-ad-filter.md)。示范脚本仅处理模拟 JSON，独立于模块。
+主模块包含知乎 `commercial_api/` 路径拦截、推荐流及回答流广告过滤，其他 App 暂保留分组注释。推荐流脚本处理 `data` 和 `dataV1` 中的品牌广告及推广回答；回答流脚本仅移除 `/next-render` 的 `data` 中 `type=ad` 的条目。模块已配置 `main` 分支的公开 HTTPS 脚本地址，日常开发和更新统一使用 `main`。详见[知乎广告过滤](docs/zhihu-ad-filter.md)。示范脚本仅处理模拟 JSON，独立于模块。
 
 ## 本地开发
 

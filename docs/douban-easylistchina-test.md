@@ -15,7 +15,7 @@
 
 ## 手机测试
 
-1. 在 Shadowrocket「配置 → 模块 → ＋」导入[本模块的公开 Raw URL](https://raw.githubusercontent.com/MaoqingW/shadowrocket-toolkit/codex/easylist-abp-converter/modules/douban-easylistchina-test.sgmodule)，保持原有个人模块不变。确认主页全局路由为「配置」。
+1. 在 Shadowrocket「配置 → 模块 → ＋」导入[本模块的公开 Raw URL](https://raw.githubusercontent.com/MaoqingW/shadowrocket-toolkit/main/modules/douban-easylistchina-test.sgmodule)，保持原有个人模块不变。确认主页全局路由为「配置」。
 2. 先禁用本模块，打开豆瓣 App，记录首页、搜索、条目详情、图片、登录和广告呈现情况。
 3. 启用模块后重新打开 App，再执行相同操作。查看 Shadowrocket 请求日志，分别确认是否出现 `erebor.douban.com` 的 `REJECT` 和四条 `URL-REGEX` 的命中；记录未命中的请求实际 URL。
 4. 也可用 Safari 请求 `https://erebor.douban.com/` 检查域名规则。Safari 命中只能验证域名拦截规则，不代表豆瓣 App 使用了这个主机。

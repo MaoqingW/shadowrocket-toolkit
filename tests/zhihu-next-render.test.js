@@ -109,7 +109,7 @@ test('模块精确绑定回答流接口并使用对应公开脚本地址', () =>
   expect(line).toContain('type=http-response,')
   expect(line).toContain('requires-body=1,max-size=-1,')
   expect(line).toContain(
-    'script-path=https://raw.githubusercontent.com/MaoqingW/shadowrocket-toolkit/refs/heads/codex/easylist-abp-converter/scripts/zhihu/next-render.js',
+    'script-path=https://raw.githubusercontent.com/MaoqingW/shadowrocket-toolkit/refs/heads/main/scripts/zhihu/next-render.js',
   )
   const pattern = new RegExp(line.match(/pattern=(.*?),requires-body=/)[1])
   for (const suffix of ['', '?type=answer&scenes=recommend'])

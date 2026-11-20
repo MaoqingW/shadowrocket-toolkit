@@ -27,13 +27,15 @@
 
 模块已配置本公开仓库分支的 HTTPS 脚本地址，可直接通过以下地址导入：
 
-- [模块直链](https://raw.githubusercontent.com/MaoqingW/shadowrocket-toolkit/refs/heads/codex/easylist-abp-converter/modules/my-rules.sgmodule)。
-- [推荐流脚本直链](https://raw.githubusercontent.com/MaoqingW/shadowrocket-toolkit/refs/heads/codex/easylist-abp-converter/scripts/zhihu/recommend.js)。
-- [回答流脚本直链](https://raw.githubusercontent.com/MaoqingW/shadowrocket-toolkit/refs/heads/codex/easylist-abp-converter/scripts/zhihu/next-render.js)。
+- [模块直链](https://raw.githubusercontent.com/MaoqingW/shadowrocket-toolkit/refs/heads/main/modules/my-rules.sgmodule)。
+- [推荐流脚本直链](https://raw.githubusercontent.com/MaoqingW/shadowrocket-toolkit/refs/heads/main/scripts/zhihu/recommend.js)。
+- [回答流脚本直链](https://raw.githubusercontent.com/MaoqingW/shadowrocket-toolkit/refs/heads/main/scripts/zhihu/next-render.js)。
 
-新增回答流脚本须随模块一起推送后，远程导入才能加载此功能；本地未发布版本需先将脚本导入设备并替换对应 `script-path`。
+模块及配套脚本统一从 `main` 分支加载。本地未发布版本需先将脚本导入设备并替换对应 `script-path`。
 
-这些地址跟随 `codex/easylist-abp-converter` 分支更新。
+这些地址跟随 `main` 分支更新。
+
+原开发分支已合并到 `main`。使用旧分支地址或旧提交固定模块的设备，应改用上述 `main` 模块地址重新导入；旧模块内部的脚本地址仍指向已删除分支，单独更新旧模块无法自动迁移。
 
 1. 在 Shadowrocket 的模块列表中添加模块直链并启用，无需手工修改 `script-path`。
 2. 模块和脚本均通过公开 GitHub Raw 地址加载，无需凭据；设备是否能访问、脚本是否下载成功仍须在设备上核实。
