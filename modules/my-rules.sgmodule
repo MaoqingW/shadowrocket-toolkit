@@ -1,5 +1,5 @@
 #!name=我的 App 优化规则
-#!desc=知乎商业接口拦截与推荐流广告过滤；脚本通过公开 HTTPS 地址加载。
+#!desc=知乎商业接口拦截、推荐流与回答流广告过滤；脚本通过公开 HTTPS 地址加载。
 
 # ====================================
 # Zhihu / 知乎
@@ -28,6 +28,8 @@
 [Script]
 # Zhihu / 知乎：从本仓库公开分支加载响应脚本。
 zhihu-recommend = type=http-response,pattern=^https://api\.zhihu\.com/topstory/recommend(?:\?|$),requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/MaoqingW/shadowrocket-toolkit/refs/heads/codex/easylist-abp-converter/scripts/zhihu/recommend.js
+# Zhihu / 知乎：仅移除回答流中 type=ad 的完整条目，保留回答、相关问题及分页。
+zhihu-next-render = type=http-response,pattern=^https://api\.zhihu\.com/next-render(?:\?|$),requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/MaoqingW/shadowrocket-toolkit/refs/heads/codex/easylist-abp-converter/scripts/zhihu/next-render.js
 
 [MITM]
 hostname = %APPEND% api.zhihu.com

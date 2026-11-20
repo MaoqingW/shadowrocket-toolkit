@@ -1,0 +1,25 @@
+{
+  "paging": {
+    "is_end": false,
+    "next": "https://example.com/next?cursor=sample",
+    "previous": "https://example.com/previous",
+    "totals": 0
+  },
+  "data": [
+    { "type": "answer", "id": "answer-a", "ad_info": { "data": "" } },
+    {
+      "type": "ad",
+      "id": "sdk-ad",
+      "adjson": "{\"ads\":[{\"third_sdk_info\":{\"brand_name\":\"sample-sdk\",\"position_id\":\"sample-position\"}}]}"
+    },
+    { "type": "answer", "id": "answer-b", "ad_info": { "data": "" } },
+    { "type": "related_query", "id": "related", "related_queries": [] },
+    {
+      "type": "ad",
+      "id": "creative-ad",
+      "adjson": "{\"ads\":[{\"creatives\":[{\"asset\":{\"title\":\"sample-ad\",\"landing_url\":\"https://example.com/ad\"}}]}]}"
+    },
+    { "type": "unknown", "id": "keep-unknown", "adjson": "not-an-ad-type" }
+  ],
+  "extra": { "sample": true }
+}
