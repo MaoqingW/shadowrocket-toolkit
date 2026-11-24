@@ -31,6 +31,9 @@ IP-CIDR6,fc00::/7,DIRECT,no-resolve
 IP-CIDR6,fe80::/10,DIRECT,no-resolve
 IP-CIDR6,::1/128,DIRECT,no-resolve
 
+# iPhone / 共享地址空间直连实验
+IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
+
 # Telemetry / 遥测：精确规则置于服务级代理规则之前。
 DOMAIN,http-inputs-notion.splunkcloud.com,REJECT
 DOMAIN,otel.gitkraken.com,REJECT
@@ -43,6 +46,22 @@ DOMAIN,adblockplus.telemetry.eyeo.com,REJECT
 DOMAIN-SUFFIX,google-analytics.com,REJECT
 DOMAIN,static.cloudflareinsights.com,REJECT
 DOMAIN-SUFFIX,carbonads.net,REJECT
+
+# Google Advertising / 广告拦截实验，优先于主配置 Google 代理规则。
+DOMAIN-SUFFIX,doubleclick.net,REJECT
+DOMAIN-SUFFIX,doubleclick-cn.net,REJECT
+DOMAIN-SUFFIX,googlesyndication.com,REJECT
+DOMAIN-SUFFIX,googlesyndication-cn.com,REJECT
+DOMAIN-SUFFIX,googleadservices.com,REJECT
+DOMAIN-SUFFIX,googleadservices-cn.com,REJECT
+DOMAIN-SUFFIX,adtrafficquality.google,REJECT
+
+# Mobile Analytics / 移动端追踪拦截实验
+DOMAIN-SUFFIX,appsflyersdk.com,REJECT
+DOMAIN,analytics.adjust.com,REJECT
+DOMAIN,api2.amplitude.com,REJECT
+DOMAIN,ads-api.twitter.com,REJECT
+DOMAIN,analytics.twitter.com,REJECT
 
 # AI / AI 服务：使用主配置已有的 PROXY 策略。
 DOMAIN-SUFFIX,chatgpt.com,PROXY
@@ -68,6 +87,15 @@ DOMAIN-SUFFIX,office.net,DIRECT
 DOMAIN-SUFFIX,vsassets.io,DIRECT
 DOMAIN,oneclient.sfx.ms,DIRECT
 DOMAIN,g.live.com,DIRECT
+
+# Apple / 新增服务直连，需使用验证。
+DOMAIN-SUFFIX,itunes.com,DIRECT
+DOMAIN,ingest.apple-studies.com,DIRECT
+
+# OCSP & NTP / 证书状态及时间同步直连实验
+DOMAIN,ocsp.digicert.com,DIRECT
+DOMAIN,cacerts.digicert.com,DIRECT
+DOMAIN-SUFFIX,pool.ntp.org,DIRECT
 
 # JetBrains / IDE 普通服务
 DOMAIN-SUFFIX,jetbrains.com,DIRECT

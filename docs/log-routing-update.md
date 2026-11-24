@@ -71,3 +71,14 @@ DOMAIN,otlp-http-production.shopifysvc.com,REJECT
 尚未取得主配置，无法确认已有 IPv4 局域网规则。本次没有扩大为所有 IPv6 直连，也没有将分析中列出的公网地址当作局域网处理。
 
 未保存原始日志、UA、账号、节点信息或设备标识至仓库。模块提供域名及指定 IPv6 地址段的覆盖规则，不包含 GEOIP 或 FINAL；默认分流继续由主配置管理。
+
+## iPhone 日志补充
+
+核对 iPhone 日志共 43,822 条：DIRECT 41,868 条、PROXY 1,873 条、REJECT 81 条，其中 FINAL 代理 424 条。按用户授权采用分析末尾的三组建议，去重后新增 18 条有效规则：
+
+- 6 条 DIRECT：`itunes.com`、`ingest.apple-studies.com`、`ocsp.digicert.com`、`cacerts.digicert.com`、`pool.ntp.org` 及 `100.64.0.0/10`。
+- 12 条 REJECT：Google 广告的七个域名后缀、AppsFlyer 后缀及 Adjust、Amplitude、X 的四个精确端点。
+
+`google-analytics.com`、B站和友盟已有规则，不重复添加。上文 `ocsp.digicert.com` 已从候选转为有效规则。Apple 中继、私密访问令牌、认证及会员验证服务保持原策略；普通内容 CDN 和正文中其他实验建议暂不启用。
+
+这些规则尚未实机验证。更新后检查 Google、YouTube、App 启动和证书验证是否正常；共享地址空间直连仍取决于本地网络及虚拟组网路由。模块与主配置合并后的实际优先级需从命中日志确认，尤其是 Google 广告拒绝规则应先于宽泛 Google 代理规则。
