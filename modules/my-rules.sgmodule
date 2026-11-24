@@ -1,5 +1,5 @@
 #!name=我的 App 优化规则
-#!desc=知乎广告过滤、网易云音乐领福利入口与默认选中配置改写；脚本通过 HTTPS 地址加载，网易云规则待手机验证。
+#!desc=知乎广告过滤、网易云领福利入口优化、B站视频直连及开发服务分流；新增直连和遥测规则待使用验证。
 
 # ====================================
 # Zhihu / 知乎
@@ -26,8 +26,59 @@
 ^https://api\.zhihu\.com/commercial_api/ - reject
 
 [Rule]
+# IPv6 Local Network / 本地网络地址
+IP-CIDR6,fc00::/7,DIRECT,no-resolve
+IP-CIDR6,fe80::/10,DIRECT,no-resolve
+IP-CIDR6,::1/128,DIRECT,no-resolve
+
+# Telemetry / 遥测：精确规则置于服务级代理规则之前。
+DOMAIN,http-inputs-notion.splunkcloud.com,REJECT
+DOMAIN,otel.gitkraken.com,REJECT
+DOMAIN,telemetry.individual.githubcopilot.com,REJECT
+DOMAIN,copilot-telemetry.githubusercontent.com,REJECT
+DOMAIN,abp.telemetry.adblockplus.org,REJECT
+DOMAIN,adblockplus.telemetry.eyeo.com,REJECT
+
+# Analytics & Advertising / 统计与广告
+DOMAIN-SUFFIX,google-analytics.com,REJECT
+DOMAIN,static.cloudflareinsights.com,REJECT
+DOMAIN-SUFFIX,carbonads.net,REJECT
+
+# AI / AI 服务：使用主配置已有的 PROXY 策略。
+DOMAIN-SUFFIX,chatgpt.com,PROXY
+DOMAIN-SUFFIX,githubcopilot.com,PROXY
+DOMAIN-SUFFIX,grok.com,PROXY
+DOMAIN-SUFFIX,jetbrains.ai,PROXY
+DOMAIN-SUFFIX,jetbrains.cloud,PROXY
+
+# Productivity & GitHub / 协作与开发服务
+DOMAIN-SUFFIX,notion.com,PROXY
+DOMAIN-SUFFIX,notion-static.com,PROXY
+DOMAIN-SUFFIX,figma.com,PROXY
+DOMAIN-SUFFIX,githubassets.com,PROXY
+
+# Microsoft & VS Code / 微软与编辑器：不扩展到通用云服务整域。
+DOMAIN-SUFFIX,vscode-cdn.net,DIRECT
+DOMAIN,default.exp-tas.com,DIRECT
+DOMAIN,vscode-sync.trafficmanager.net,DIRECT
+DOMAIN-SUFFIX,static.microsoft,DIRECT
+DOMAIN,officeci-mauservice.azurewebsites.net,DIRECT
+DOMAIN-SUFFIX,office.com,DIRECT
+DOMAIN-SUFFIX,office.net,DIRECT
+DOMAIN-SUFFIX,vsassets.io,DIRECT
+DOMAIN,oneclient.sfx.ms,DIRECT
+DOMAIN,g.live.com,DIRECT
+
+# JetBrains / IDE 普通服务
+DOMAIN-SUFFIX,jetbrains.com,DIRECT
+
+# Umeng / 友盟：包括消息推送，先按域名直连。
+DOMAIN-SUFFIX,umeng.com,DIRECT
+DOMAIN-SUFFIX,umengcloud.com,DIRECT
+
 # Bilibili / B站：bilivideo.com 主域及所有子域名直连。
 DOMAIN-SUFFIX,bilivideo.com,DIRECT
+DOMAIN-SUFFIX,bilivideo.cn,DIRECT
 
 [Script]
 # NetEase Music / 网易云音乐：删除领福利顶部入口，取消 freeListen 默认选中；二进制 EAPI 响应解密后重新加密。
