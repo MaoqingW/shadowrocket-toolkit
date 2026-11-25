@@ -35,7 +35,6 @@ IP-CIDR6,::1/128,DIRECT,no-resolve
 IP-CIDR,100.64.0.0/10,DIRECT,no-resolve
 
 # Telemetry / 遥测：精确规则置于服务级代理规则之前。
-DOMAIN,http-inputs-notion.splunkcloud.com,REJECT
 DOMAIN,otel.gitkraken.com,REJECT
 DOMAIN,telemetry.individual.githubcopilot.com,REJECT
 DOMAIN,copilot-telemetry.githubusercontent.com,REJECT
@@ -71,6 +70,8 @@ DOMAIN-SUFFIX,jetbrains.ai,PROXY
 DOMAIN-SUFFIX,jetbrains.cloud,PROXY
 
 # Productivity & GitHub / 协作与开发服务
+# Notion 遥测试行代理，观察连接频率是否下降。
+DOMAIN,http-inputs-notion.splunkcloud.com,PROXY
 DOMAIN-SUFFIX,notion.com,PROXY
 DOMAIN-SUFFIX,notion-static.com,PROXY
 DOMAIN-SUFFIX,figma.com,PROXY
@@ -87,6 +88,9 @@ DOMAIN-SUFFIX,office.net,DIRECT
 DOMAIN-SUFFIX,vsassets.io,DIRECT
 DOMAIN,oneclient.sfx.ms,DIRECT
 DOMAIN,g.live.com,DIRECT
+
+# Adblock Plus / 规则订阅
+DOMAIN,easylist-downloads.adblockplus.org,DIRECT
 
 # Apple / 新增服务直连，需使用验证。
 DOMAIN-SUFFIX,itunes.com,DIRECT

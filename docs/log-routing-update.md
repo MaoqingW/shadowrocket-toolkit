@@ -19,7 +19,6 @@
 以下为原分析中需先测试的候选，不是有效模块条目：
 
 ```ini
-DOMAIN,easylist-downloads.adblockplus.org,DIRECT
 DOMAIN,updates.fournova.com,DIRECT
 DOMAIN-SUFFIX,schemastore.org,DIRECT
 DOMAIN-SUFFIX,npmjs.org,DIRECT
@@ -82,3 +81,8 @@ DOMAIN,otlp-http-production.shopifysvc.com,REJECT
 `google-analytics.com`、B站和友盟已有规则，不重复添加。上文 `ocsp.digicert.com` 已从候选转为有效规则。Apple 中继、私密访问令牌、认证及会员验证服务保持原策略；普通内容 CDN 和正文中其他实验建议暂不启用。
 
 这些规则尚未实机验证。更新后检查 Google、YouTube、App 启动和证书验证是否正常；共享地址空间直连仍取决于本地网络及虚拟组网路由。模块与主配置合并后的实际优先级需从命中日志确认，尤其是 Google 广告拒绝规则应先于宽泛 Google 代理规则。
+
+## 11 月 25 日 Mac 日志补充
+
+- `easylist-downloads.adblockplus.org` 已加入精确直连规则。HTTPS 下载返回 200，实际模块命中待验证。
+- `http-inputs-notion.splunkcloud.com` 从 REJECT 改为精确 PROXY。刷新模块后观察该域名的连接频率。
